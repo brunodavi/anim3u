@@ -43,20 +43,15 @@ def anim3u(link, start=1, end=30):
     m3u = m3u.lower()
     m3u += '.m3u'
 
-    while len(anime) < end:
+    while end != 30 and len(anime) < end:
         part += 1
 
         link = sub(r'paged=\d+$', f'paged={part}', link)
         page = openurl(link).text
         page = findall(revt, page)
 
-        if len(page) == 30:
-            anime += page
-
-        else:
-            anime += page
-            break
-
+        anime += page
+        
         print(f'Parte {part}, carregada!\n')
 
     anime += [(0, 1)]
@@ -67,6 +62,9 @@ def anim3u(link, start=1, end=30):
     playlist.mode = 'a'
 
     for url, title in anime[start-1:end]:
+
+        if url == 0:
+            break
 
         html = openurl(url).text
         title = title.replace('&#8211;', '-')
