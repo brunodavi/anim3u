@@ -18,9 +18,6 @@ def anim3u(link, start=1, end=30):
 
     part = 1
 
-    if 'goyabu.com' not in link:
-        link = input('Cole o link da página do anime em goyabu.com: ')
-
     paged = f'?paged={part}'
     started = 0
 
