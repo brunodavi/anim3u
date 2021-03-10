@@ -77,7 +77,7 @@ def anim3u(link, start=1, end=30):
         print(video)
         print('\n')
 
-        playlist.write(f'#EXTINF:-1, {title}\n{video}\n\n')
+        playlist.write(f'#EXTINF:-1, ANIM3U - {title}\n{video}\n\n')
 
     playlist.close()
 
